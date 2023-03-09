@@ -1,0 +1,215 @@
+body {
+    background-color: #fff;
+    font-family: "Montserrat", sans-serif;
+    /* background-image: url("https://www.transparenttextures.com/patterns/axiom-pattern.png"); */
+    /* background-image: url("https://www.transparenttextures.com/patterns/black-mamba.png"); */
+    /* background-image: url("https://www.transparenttextures.com/patterns/black-paper.png"); */
+    /* background-image: url("https://www.transparenttextures.com/patterns/cubes.png"); */
+    margin: 0;
+    padding: 0;
+    font-family: 'Merienda', cursive;
+}
+
+a {
+    color: blueviolet;
+}
+
+a:hover {
+    color: rebeccapurple;
+}
+
+.heading {
+    text-align: center;
+    color: blueviolet;
+    font-weight: 700;
+    width: 90%;
+}
+
+.heading:hover {
+    color: rgb(216, 26, 245);
+}
+
+.mainDiv {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    padding: 2%;
+    border-radius: 15px;
+    border: none;
+}
+
+#chk {
+    height: 1.7rem;
+    padding: 5px;
+    width: 3rem;
+    cursor: pointer;
+}
+
+#chk:checked {
+    background-color: black;
+}
+
+.fa-sun {
+    color: rgb(235, 30, 30);
+}
+
+.fa-moon {
+    color: #ffeeed;
+}
+
+.whiteBG {
+    background-color: #ffeeed;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+    transition: all 0.5s;
+}
+
+.whiteBG:hover {
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.25);
+    transition: all 0.5s;
+}
+
+.blackBG {
+    background-color: #1b1a1a;
+    /* background-color: #2D033B; */
+    box-shadow: 0 0 5px black;
+    transition: all 0.5s;
+}
+
+.blackBG:hover {
+    box-shadow: 0 0 8px black;
+    transition: all 0.5s;
+}
+
+.content {
+    overflow: auto;
+    display: flex;
+    flex-direction: column-reverse;
+    height: 50vh;
+}
+
+#inRoom {
+    height: fit-content;
+    max-height: 80vh;
+    overflow: auto;
+}
+
+.msgDiv {
+    background-color: #5CB8E4;
+    /* background-color: #00FFF6; */
+    border-radius: 10px;
+    margin-bottom: 15px;
+    padding: 1%;
+    margin-right: 1%;
+}
+
+.roomMate {
+    padding: 5px;
+}
+
+.msg {
+    overflow-wrap: break-word;
+    padding-bottom: 0;
+    margin-bottom: 0.5rem;
+}
+
+.msg span {
+    white-space: nowrap;
+    color: #EAEAEA;
+    /* color: rgb(131, 70, 229); */
+}
+
+.fa-star {
+    color: rgb(252, 27, 68);
+}
+
+.compose {
+    margin-top: 1%;
+    margin-bottom: 1%;
+}
+/* 1b1a1a  343434*/
+#context-menu {
+    position: fixed;
+    z-index: 5;
+    width: 140px;
+    background-color: #1b1a1a;
+    border-radius: 5px;
+    margin: 0;
+    padding: 0;
+    transform: scale(0);
+    transform-origin: top left;
+}
+
+#context-menu.visible {
+    transform: scale(1);
+    transition: transform 200ms ease-in-out;
+}
+
+#context-menu .item {
+    color: #eee;
+    cursor: pointer;
+    text-align: center;
+    border-radius: inherit;
+    padding: 8px 0;
+    margin: 0;
+}
+
+#context-menu .item:hover {
+    background-color: #343434;
+}
+
+.customModal {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    width: 100%;
+    padding-left: 5vw;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.35);
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+
+#modalBody{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    width: max-content;
+    max-width: 400px;
+    max-height: 500px;
+    background-color: #FFF;
+    z-index: 100;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.showCustomModal {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    height: 100vh;
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+@media only screen and (min-width: 768px) {
+    #room {
+        display: block;
+    }
+
+    #bars {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    #room {
+        display: none;
+    }
+
+    #bars {
+        display: block;
+    }
+}

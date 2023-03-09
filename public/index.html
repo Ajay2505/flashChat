@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flash Chat</title>
+    <meta name="description" content="Simple group chat app. It's a temperory chat application because the chats are not saved! With nice and simple user friendly website for chatting">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+    <!-- Font awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <!-- w3schools -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://image.shutterstock.com/image-vector/group-chat-260nw-660983308.jpg"
+        type="image/x-icon">
+
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <div id="customModal" class="customModal">
+        <div id="modalBody">
+            <h4 class="mb-4"></h4>
+            <div>
+                <button type="button" class="btn btn-info text-white">Okay!</button>
+            </div>
+        </div>
+    </div>
+    <div class="row mx-0">
+
+        <div id="context-menu">
+            <p class="item" id="kickOut">Kick out</p>
+            <p class="item" id="makeLeader">Make leader</p>
+        </div>
+
+        <div class="col-lg-3 col-md-12 col-sm-12 whiteBG mainDiv" id="left">
+            <div>
+                <button name="button" id="bars" type="submit" class="btn btn-outline-info ms-auto"><i
+                        class="fa-solid fa-bars"></i></button>
+            </div>
+
+            <div id="room">
+                <div id="roomForms">
+                    <form class="w3-animate-top mx-3 my-3" id="createRoom">
+                        <input type="text" placeholder="User Name" class="form-control my-3" name="name" required>
+                        <button name="button" type="submit" class="btn btn-success">Create room</button>
+                    </form>
+                    <p style="text-align: center;" class="msgDiv">Or</p>
+                    <form class="w3-animate-top mx-3 my-3" id="joinRoom">
+                        <input type="text" placeholder="User Name" class="form-control mt-4" name="name" required>
+                        <input type="text" placeholder="Room Number" class="form-control my-3" name="room" required>
+                        <button name="button" type="submit" class="btn btn-success">Join Room</button>
+                    </form>
+                </div>
+
+                <div id="inRoom" class="w3-animate-top">
+                    <button id="leaveRoom" class="btn btn-danger my-4">Leave Room</button>
+                    <p class="msgDiv" id="me"></p>
+                    <div id="roomMates"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="whiteBG mainDiv col-lg-8 col-md-12 col-sm-12" style="width: 60%;" id="mainDiv">
+            <div class="hstack">
+                <h1 class="heading">SquadTalk</h1>
+                <div class="form-check form-switch ms-5">
+                    <input class="form-check-input form-check-lg fa-solid fa-sun" type="checkbox" role="switch" id="chk">
+                </div>
+            </div>
+
+            <div id="right">
+                <p id="roomID"></p>
+            </div>
+
+            <div class="compose">
+                <form id="sendMsg" class="hstack" method="post">
+                    <input type="text" autocomplete="off" class="form-control" name="msg" placeholder="Message">
+                    <button type="submit" class="btn btn-primary ms-3" name="button">Send</button>
+                </form>
+                <br>
+                <button type="button" class="btn btn-success" id="location">Send Location</button>
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="module" src="./css/styles.js"></script>
+    <script type="module" src="./index.js"></script>
+</body>
+
+</html>
