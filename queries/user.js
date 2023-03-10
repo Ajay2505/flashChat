@@ -1,34 +1,34 @@
 const User = require("../model/users");
 
 const createRoom = async ({ name, room, socketID }) => {
-  const validRoom = await User.findOne({ room });
+  const existingRoom = await User.findOne({ room });
 
-  if (!validRoom) {
-    room = Math.floor(100000 + Math.random() * 900000);
+  if (!existingRoom) {
+    const user = new User({ name, room, socketID });
+    try {
+      await user.save();
+
+      return { docs: { name: user.name, room: user.room }, err: undefined };
+    } catch (e) {
+      return { err: "Something went wrong. Please try again later!" };
+    }
   }
 
-  const user = new User({ name, room, socketID });
-  try {
-    await user.save();
-
-    return { docs: { name: user.name, room: user.room }, err: undefined };
-  } catch (e) {
-    return { err: e };
-  }
+  return { err: "Room name already taken! Please try again." };
 };
 
 const joinRoom = async ({ name, room, socketID }) => {
   const roomMembers = await getRoomMembers(room);
 
   if (!roomMembers.length) {
-    return { err: "Invalid room number!" };
+    return { err: "Invalid room!" };
   }
 
   const nameTaken = roomMembers.find(
     (roomMember) => roomMember.name.toLowerCase() === name.toLowerCase()
   );
   if (nameTaken) {
-    return { err: "Name already taken in this room!" };
+    return { err: "User name already taken in this room! Try again." };
   }
 
   const user = new User({ name, room, socketID });
@@ -37,7 +37,7 @@ const joinRoom = async ({ name, room, socketID }) => {
     await user.save();
     return { err: undefined, docs: { name: user.name, room: user.room } };
   } catch (e) {
-    return { err: e };
+    return { err: "Something went wrong. Please try again later!" };
   }
 };
 

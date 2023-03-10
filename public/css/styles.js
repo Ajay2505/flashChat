@@ -57,14 +57,14 @@ chk.addEventListener("click", (evt) => {
 
 const setRoom = function (inRoom) {
   const roomForms = document.getElementById("roomForms").style;
-  const rightHtml = `<p id="roomID"></p>
-   <div class="content">
-       <div id="messages" class="vstack w3-animate-top">
-           <div class="msgDiv" style="background-color:${getMsgColor()};">
-               <p class="msg">Welcome!</p>
-           </div>
-       </div>
-   </div>`;
+  const rightHtml = 
+    `<div class="content">
+      <div id="messages" class="vstack w3-animate-top">
+          <div class="msgDiv" style="background-color:${getMsgColor()};">
+              <p class="msg">Welcome!</p>
+          </div>
+      </div>
+    </div>`;
   if (!inRoom) {
     document.getElementById("right").innerHTML = rightHtml;
     document.getElementById("inRoom").style.display = "none";
@@ -74,13 +74,14 @@ const setRoom = function (inRoom) {
   roomForms.display = "none";
   document.getElementById("inRoom").style.display = "block";
 
-  document.getElementById("roomID").classList.add("msgDiv");
+  document.getElementById("roomID").classList.add("msgDiv", "ps-3");
   setMsgColor();
 };
 
 const genUpdates = (info) => {
-  document.getElementById("messages").innerHTML += 
-  `<div class="msgDiv" style="background-color:${getMsgColor()};">
+  document.getElementById(
+    "messages"
+  ).innerHTML += `<div class="msgDiv" style="background-color:${getMsgColor()};">
       <p class="msg">
       <strong>${info.message}</strong> 
       <span> - ${info?.time}</span></p>
@@ -129,7 +130,7 @@ const setRoomMates = ({ users, myName, owner }) => {
   }
 
   roomMates.innerHTML = `<p  style="background-color:${getMsgColor()};"
-    class='msgDiv'><strong>Friends: </strong></p>`;
+    class='msgDiv ps-3'><strong>Friends: </strong></p>`;
 
   for (let idx = 0; idx < users.length; idx++) {
     if (users[idx].name.toLowerCase() === myName.toLowerCase()) {

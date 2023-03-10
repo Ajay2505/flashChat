@@ -52,25 +52,27 @@
                 <div id="roomForms">
                     <form class="w3-animate-top mx-3 my-3" id="createRoom">
                         <input type="text" placeholder="User Name" class="form-control my-3" name="name" required>
+                        <input type="text" placeholder="Room Name" class="form-control my-3" name="room" required>
                         <button name="button" type="submit" class="btn btn-success">Create room</button>
                     </form>
-                    <p style="text-align: center;" class="msgDiv">Or</p>
+                    <p style="text-align: center;" class="msgDiv mx-5 ">Or</p>
                     <form class="w3-animate-top mx-3 my-3" id="joinRoom">
                         <input type="text" placeholder="User Name" class="form-control mt-4" name="name" required>
-                        <input type="text" placeholder="Room Number" class="form-control my-3" name="room" required>
+                        <input type="text" placeholder="Room Name" class="form-control my-3" name="room" required>
                         <button name="button" type="submit" class="btn btn-success">Join Room</button>
                     </form>
                 </div>
 
                 <div id="inRoom" class="w3-animate-top">
                     <button id="leaveRoom" class="btn btn-danger my-4">Leave Room</button>
-                    <p class="msgDiv" id="me"></p>
+                    <p id="roomID"></p>
+                    <p class="msgDiv ps-3" id="me"></p>
                     <div id="roomMates"></div>
                 </div>
             </div>
         </div>
 
-        <div class="whiteBG mainDiv col-lg-8 col-md-12 col-sm-12" style="width: 60%;" id="mainDiv">
+        <div class="whiteBG mainDiv col-lg-8 col-md-12 col-sm-12" id="mainDiv">
             <div class="hstack">
                 <h1 class="heading">SquadTalk</h1>
                 <div class="form-check form-switch ms-5">
@@ -78,9 +80,7 @@
                 </div>
             </div>
 
-            <div id="right">
-                <p id="roomID"></p>
-            </div>
+            <div id="right"></div>
 
             <div class="compose">
                 <form id="sendMsg" class="hstack" method="post">

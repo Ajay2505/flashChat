@@ -1,21 +1,19 @@
 body {
     background-color: #fff;
     font-family: "Montserrat", sans-serif;
-    /* background-image: url("https://www.transparenttextures.com/patterns/axiom-pattern.png"); */
-    /* background-image: url("https://www.transparenttextures.com/patterns/black-mamba.png"); */
-    /* background-image: url("https://www.transparenttextures.com/patterns/black-paper.png"); */
-    /* background-image: url("https://www.transparenttextures.com/patterns/cubes.png"); */
     margin: 0;
     padding: 0;
     font-family: 'Merienda', cursive;
 }
 
 a {
-    color: blueviolet;
+    color: rgb(21, 0, 255);
+    text-decoration: none;
 }
 
 a:hover {
-    color: rebeccapurple;
+    color: rgb(0, 140, 255);
+    text-decoration: underline;
 }
 
 .heading {
@@ -60,24 +58,22 @@ a:hover {
 
 .whiteBG {
     background-color: #ffeeed;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
     transition: all 0.5s;
 }
 
 .whiteBG:hover {
-    box-shadow: 0 0 7px rgba(0, 0, 0, 0.25);
-    transition: all 0.5s;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+    transition: all 0.2s;
 }
 
 .blackBG {
     background-color: #1b1a1a;
-    /* background-color: #2D033B; */
-    box-shadow: 0 0 5px black;
     transition: all 0.5s;
 }
 
 .blackBG:hover {
-    box-shadow: 0 0 8px black;
+    box-shadow: 0 1px 0 #fff;
     transition: all 0.5s;
 }
 
@@ -85,7 +81,7 @@ a:hover {
     overflow: auto;
     display: flex;
     flex-direction: column-reverse;
-    height: 50vh;
+    height: 60vh;
 }
 
 #inRoom {
@@ -96,7 +92,6 @@ a:hover {
 
 .msgDiv {
     background-color: #5CB8E4;
-    /* background-color: #00FFF6; */
     border-radius: 10px;
     margin-bottom: 15px;
     padding: 1%;
@@ -104,7 +99,7 @@ a:hover {
 }
 
 .roomMate {
-    padding: 5px;
+    padding: 5px 8px;
 }
 
 .msg {
@@ -116,7 +111,6 @@ a:hover {
 .msg span {
     white-space: nowrap;
     color: #EAEAEA;
-    /* color: rgb(131, 70, 229); */
 }
 
 .fa-star {
@@ -127,7 +121,7 @@ a:hover {
     margin-top: 1%;
     margin-bottom: 1%;
 }
-/* 1b1a1a  343434*/
+
 #context-menu {
     position: fixed;
     z-index: 5;
@@ -162,9 +156,10 @@ a:hover {
     position: fixed;
     display: flex;
     align-items: center;
-    /* justify-content: center; */
+    justify-content: center;
     width: 100%;
-    padding-left: 5vw;
+    height: 100vh;
+    /* padding-left: 5vw; */
     z-index: 99;
     background-color: rgba(0, 0, 0, 0.35);
     visibility: hidden;
@@ -190,7 +185,6 @@ a:hover {
     opacity: 1;
     visibility: visible;
     transform: scale(1.0);
-    height: 100vh;
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }
 
@@ -211,5 +205,8 @@ a:hover {
 
     #bars {
         display: block;
+    }
+    .mainDiv{
+        width: 85%;
     }
 }

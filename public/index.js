@@ -33,9 +33,8 @@ document.getElementById("createRoom").addEventListener("submit", (evt) => {
     evt.preventDefault();
 
     myName = evt.target.name.value.trim();
-    evt.target.name.value = "";
 
-    socket.emit("createRoom", { name: myName },
+    socket.emit("createRoom", { name: myName, room: evt.target.room.value.trim() },
      (err, docs) => {
         if (err) {
             return systemMessage({ message: err,
@@ -46,7 +45,7 @@ document.getElementById("createRoom").addEventListener("submit", (evt) => {
         setRoom(true);
 
         setRoomMembers({ users:[], myName, owner: myName });
-        document.getElementById("roomID").innerText = `Room number: ${docs.room}`;
+        document.getElementById("roomID").innerText = `Room name: ${docs.room}`;
     });
 
 });
@@ -55,7 +54,7 @@ document.getElementById("joinRoom").addEventListener("submit", (evt) => {
     evt.preventDefault();
     const { name, room } = evt.target;
     
-    socket.emit("joinRoom", { name: name.value.trim(), room: Number(room.value.trim()) }, 
+    socket.emit("joinRoom", { name: name.value.trim(), room: room.value.trim() }, 
     ( err, docs ) => {
         if(err) {
             return systemMessage({ message: err, 
@@ -68,7 +67,7 @@ document.getElementById("joinRoom").addEventListener("submit", (evt) => {
         myName = docs.name;
 
         setRoom(true);
-        document.getElementById("roomID").innerHTML = `Room number: ${docs.room}`;
+        document.getElementById("roomID").innerText = `Room name: ${docs.room}`;
     });
 
 });

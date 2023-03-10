@@ -28,13 +28,17 @@ app.use(express.static("public"));
 io.on("connection", (socket) => {
     console.log("Connected");
     
-    socket.on("createRoom", async ({ name } , callback) => {
-        const room = Math.floor(100000 + Math.random() * 900000);
+    socket.on("createRoom", async ({ name, room } , callback) => {
+        const filter = new Filter();
+
+        if (filter.isProfane(name) || filter.isProfane(room)) {
+            return callback("Bad words are not allowed");
+        }
         
         const {err, docs} = await createRoom({ name, room, socketID: socket.id });
         
         if (err) {
-           return callback("Something went wrong, please try again!");
+           return callback(err);
         }
 
         const { error } = await setOwner({ room: docs.room, name: docs.name, socketID: socket.id });
